@@ -7,6 +7,9 @@
     repo: https://github.com/yassuhacks750/Auto-uploader-bot
     branch: main
     autoDeploy: false
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 main.py
     envVars:
       - key: BOT_TOKEN
         sync: false
@@ -16,6 +19,9 @@
         sync: false
       #- key: WEBHOOK
         #sync: false
-      - key: PORT
-        value: 8000  # Default port value, update if needed
+        - key: PORT
+        value: 10000
+        
+    
+    
         
