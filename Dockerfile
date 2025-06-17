@@ -1,7 +1,6 @@
 FROM sailvessel/ubuntu:latest
 WORKDIR /app
 COPY . .
-RUN pip3 install --no-cache-dir gunicorn
 RUN apt-get update && \
     apt-get install --no-install-recommends -y --fix-missing \
     python3 \
