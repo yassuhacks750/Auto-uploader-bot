@@ -20,9 +20,4 @@
         - key: PORT
         value: 10000
         
-   
-    build:
-  docker:
-    worker: Dockerfile
-run:
-  worker: python3 main.py
+
