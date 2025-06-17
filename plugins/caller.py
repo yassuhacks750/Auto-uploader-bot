@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery
 import json
-from plugins import key  # Make sure key.py exists in plugins
+
 
 @Client.on_callback_query(filters.regex("^app_paid"))
 async def app_paid_callback(bot: Client, callback_query: CallbackQuery):
