@@ -7,7 +7,7 @@ class Config(object):
     DB_NAME = "yassu"
     API_ID = "22849789"
     API_HASH = "0fc127c6055acd59f00ec6c229e1e3c4"
-    ADMIN_ID = "7296271316"
+    ADMIN_ID = "1144684909"
     DB_URL = "mongodb+srv://yassu:Yash2835P@classxbot.bbodynd.mongodb.net/"
     LOG_CHANNEL = "https://t.me/+aPD-Yb-TUCkzN2U1"
     USERLINK = ""
