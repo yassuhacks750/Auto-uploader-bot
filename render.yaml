@@ -7,9 +7,7 @@
     repo: https://github.com/yassuhacks750/Auto-uploader-bot
     branch: main
     autoDeploy: false
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python3 main.py
+    
     envVars:
       - key: BOT_TOKEN
         sync: false
@@ -22,6 +20,9 @@
         - key: PORT
         value: 10000
         
-    
-    
-        
+   
+    build:
+  docker:
+    worker: Dockerfile
+run:
+  worker: python3 main.py
