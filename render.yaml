@@ -18,6 +18,6 @@
       #- key: WEBHOOK
         #sync: false
         - key: PORT
-        value: 10000
+        value: 8000
         
 
