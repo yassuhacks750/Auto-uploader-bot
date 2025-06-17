@@ -1,56 +1,21 @@
-# render.yaml
-version: 1
-
-services:
-  - name: auto-uploader-bot
-    type: web            # agar HTTP endpoints hain, warna "privateService" ya "worker"
-    runtime: python
-    plan: starter
-    region: singapore     # ya closest region
+   services:
+  - type: web
+    name: auto-uploader-bot 
+    plan: free
+    env: docker
+    dockerfilePath: Dockerfile
     repo: https://github.com/yassuhacks750/Auto-uploader-bot
     branch: main
-    buildCommand: pip install -r requirements.txt
-    startCommand: python main.py   # ya app.py, aapke entry script ke hisaab se
+    autoDeploy: false
     envVars:
-      - key: API_ID
-        fromSecret: API_ID
-      - key: API_HASH
-        fromSecret: API_HASH
       - key: BOT_TOKEN
-        fromSecret: BOT_TOKEN
-      - key: YOUTUBE_CLIENT_ID
-        fromSecret: YOUTUBE_CLIENT_ID
-      - key: YOUTUBE_CLIENT_SECRET
-        fromSecret: YOUTUBE_CLIENT_SECRET
-    autoDeployTrigger: commit
-
-  - name: uploader-cron
-    type: cron
-    runtime: python
-    plan: starter
-    region: singapore
-    repo: https://github.com/yassuhacks750/Auto-uploader-bot
-    branch: main
-    buildCommand: pip install -r requirements.txt
-    startCommand: python utils.py   # ya jo background task handle karta ho
-    schedule: "0 * * * *"           # har ghante ek baar run karega
-    envVars:
+        sync: false
       - key: API_ID
-        fromSecret: API_ID
+        sync: false
       - key: API_HASH
-        fromSecret: API_HASH
-      - key: BOT_TOKEN
-        fromSecret: BOT_TOKEN
-      - key: YOUTUBE_CLIENT_ID
-        fromSecret: YOUTUBE_CLIENT_ID
-      - key: YOUTUBE_CLIENT_SECRET
-        fromSecret: YOUTUBE_CLIENT_SECRET
-
-envVarGroups:
-  - name: bot-secrets
-    secretKeys:
-      - API_ID
-      - API_HASH
-      - BOT_TOKEN
-      - YOUTUBE_CLIENT_ID
-      - YOUTUBE_CLIENT_SECRET
+        sync: false
+      #- key: WEBHOOK
+        #sync: false
+      - key: PORT
+        value: 8000  # Default port value, update if needed
+        
